@@ -392,9 +392,8 @@ Este projeto está sob a licença MIT. Veja o arquivo LICENSE para mais detalhes
 ## 👨‍💻 Autor
 
 **Seu Nome**
-- GitHub: [@seu-usuario](https://github.com/seu-usuario)
-- LinkedIn: [Seu LinkedIn](https://linkedin.com/in/seu-perfil)
-- Email: seu.email@exemplo.com
+- GitHub: (https://github.com/Fx250000)
+- Email: d.holz@live.com
 
 ## 🙏 Agradecimentos
 
