@@ -4,6 +4,7 @@ import br.com.alura.forumapi.auth.dto.AuthResponse;
 import br.com.alura.forumapi.auth.dto.LoginRequest;
 import br.com.alura.forumapi.auth.dto.RegisterRequest;
 import br.com.alura.forumapi.auth.service.AuthService;
+import br.com.alura.forumapi.config.ApiResponse;
 import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -19,14 +20,16 @@ public class AuthController {
     }
 
     @PostMapping("/login")
-    public ResponseEntity<AuthResponse> login(@RequestBody @Valid LoginRequest loginRequest) {
+    public ResponseEntity<ApiResponse<AuthResponse>> login(@RequestBody @Valid LoginRequest loginRequest) {
         AuthResponse authResponse = authService.login(loginRequest);
-        return ResponseEntity.ok(authResponse);
+        ApiResponse<AuthResponse> response = ApiResponse.success("Login realizado com sucesso", authResponse);
+        return ResponseEntity.ok(response);
     }
 
     @PostMapping("/register")
-    public ResponseEntity<AuthResponse> register(@RequestBody @Valid RegisterRequest registerRequest) {
+    public ResponseEntity<ApiResponse<AuthResponse>> register(@RequestBody @Valid RegisterRequest registerRequest) {
         AuthResponse authResponse = authService.register(registerRequest);
-        return ResponseEntity.ok(authResponse);
+        ApiResponse<AuthResponse> response = ApiResponse.success("Usuário registrado com sucesso", authResponse);
+        return ResponseEntity.ok(response);
     }
 }

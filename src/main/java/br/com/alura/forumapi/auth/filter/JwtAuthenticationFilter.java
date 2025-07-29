@@ -1,7 +1,6 @@
 package br.com.alura.forumapi.auth.filter;
 
 import br.com.alura.forumapi.auth.service.JwtService;
-import br.com.alura.forumapi.user.service.UserService;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;

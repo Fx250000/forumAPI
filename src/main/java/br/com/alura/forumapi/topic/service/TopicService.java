@@ -1,5 +1,7 @@
 package br.com.alura.forumapi.topic.service;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import br.com.alura.forumapi.topic.entity.Topic;
 import br.com.alura.forumapi.topic.repository.TopicRepository;
 import br.com.alura.forumapi.user.entity.User;
@@ -203,4 +205,25 @@ public class TopicService {
     public long countTopicsByCourse(String courseName) {
         return topicRepository.findByCourseNameOrderByCreatedAtDesc(courseName).size();
     }
-}
+
+    /**
+     * Busca tópicos com filtros e paginação
+     * @param pageable configuração de paginação
+     * @param courseName filtro por curso (opcional)
+     * @param searchText filtro por texto (opcional)
+     * @return Page<Topic>
+     */
+    public Page<Topic> findAllWithFilters(Pageable pageable, String courseName, String searchText) {
+        return topicRepository.findWithFilters(courseName, searchText, pageable);
+    }
+
+    /**
+     * Busca tópicos por username do autor
+     * @param username username do autor
+     * @return List<Topic>
+     */
+    public List<Topic> findByAuthorUsername(String username) {
+        return topicRepository.findByAuthorUsernameOrderByCreatedAtDesc(username);
+    }
+
+    }
