@@ -8,14 +8,15 @@ import org.springframework.context.annotation.Configuration;
 
 @Configuration
 public class OpenAPIConfig {
+
     @Bean
-    public OpenAPI openAPI() {
+    public OpenAPI customOpenAPI() {
         return new OpenAPI().info(new Info()
                 .title("API Fórum Alura")
                 .version("1.0")
-                .description("Documentação interativa da API de Fórum")
+                .description("Documentação interativa da API de Fórum para Alura Challenge")
                 .contact(new Contact()
-                        .name("Douglas Holz")
+                        .name("Fx250000")
                         .email("d.holz@live.com")
                 )
         );
